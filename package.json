@@ -1,0 +1,30 @@
+{
+  "name": "qiao.ext.cos",
+  "version": "0.4.0",
+  "license": "MIT",
+  "description": "ali oss upload tool on nodejs",
+  "keywords": [
+    "oss",
+    "upload",
+    "tool"
+  ],
+  "main": "index.js",
+  "scripts": {},
+  "bin": {
+    "qoss": "./bin/qoss"
+  },
+  "dependencies": {
+    "ali-oss": "^6.1.0",
+    "qiao.plugin.cli": "0.0.6"
+  },
+  "author": {
+    "name": "qiaowenbin",
+    "email": "npm@insistime.com",
+    "url": "https://insistime.com"
+  },
+  "homepage": "https://code.insistime.com/qiao.ext.cos",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insistime/qiao.ext.cos.git"
+  }
+}
