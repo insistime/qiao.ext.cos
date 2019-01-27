@@ -1,7 +1,7 @@
 'use strict';
 
-var qiaoExtOss 	= require('../lib/qiao.ext.cos.js');
-var client		= qiaoExtOss.client(require('./config.json'));
+var qiaoExtCos 	= require('../lib/qiao.ext.cos.js');
+var client		= qiaoExtCos.client(require('../bin/config.json'));
 
 /**
  * upload file demo
@@ -18,11 +18,11 @@ var test = function(){
 	console.log();
 	
 	console.time('total use');
-	qiaoExtOss.uploadFile(client, destPath, sourceFile, function(err, rs){
+	qiaoExtCos.uploadFile(client, destPath, sourceFile, function(err, data){
 		if(err) throw err;
 		
 		console.log('upload success, url is:');
-		console.log('	' + rs.url);
+		console.log('	' + data.Location);
 		console.log();
 		
 		console.timeEnd('total use');

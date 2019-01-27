@@ -28,7 +28,7 @@ npm install qiao.ext.cos
 'use strict';
 
 var qiaoExtOss	= require('qiao.ext.cos');
-var client	= qiaoExtOss.client(require('./config.json'));
+var client	= qiaoExtOss.client(require('../bin/config.json'));
 
 /**
  * upload file demo
@@ -54,7 +54,7 @@ test();
 'use strict';
 
 var qiaoExtOss	= require('qiao.ext.cos');
-var client	= qiaoExtOss.client(require('./config.json'));
+var client	= qiaoExtOss.client(require('../bin/config.json'));
 
 /**
  * upload folder
@@ -80,7 +80,7 @@ test();
 'use strict';
 
 var qiaoExtOss	= require('qiao.ext.cos');
-var client	= qiaoExtOss.client(require('./config.json'));
+var client	= qiaoExtOss.client(require('../bin/config.json'));
 
 /**
  * upload file demo
@@ -98,7 +98,7 @@ qiaoExtOss.uploadFile(client, 'test/test.js', 'd:/test.js', function(err, rs){
 'use strict';
 
 var qiaoExtOss	= require('qiao.ext.cos');
-var client	= qiaoExtOss.client(require('./config.json'));
+var client	= qiaoExtOss.client(require('../bin/config.json'));
 
 /**
  * upload folder

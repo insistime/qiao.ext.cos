@@ -1,7 +1,7 @@
 'use strict';
 
-var qiaoExtOss 	= require('../lib/qiao.ext.cos.js');
-var client		= qiaoExtOss.client(require('./config.json'));
+var qiaoExtCos 	= require('../lib/qiao.ext.cos.js');
+var client		= qiaoExtCos.client(require('../bin/config.json'));
 
 /**
  * upload folder
