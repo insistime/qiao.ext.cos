@@ -1,20 +1,22 @@
 {
   "name": "qiao.ext.cos",
-  "version": "0.4.0",
+  "version": "0.0.1",
   "license": "MIT",
-  "description": "ali oss upload tool on nodejs",
+  "description": "tencent cos upload tool on nodejs",
   "keywords": [
-    "oss",
+    "tencent",
+    "tencentyun",
+    "cos",
     "upload",
-    "tool"
+    "tool",
+    "nodejs"
   ],
   "main": "index.js",
   "scripts": {},
   "bin": {
-    "qoss": "./bin/qoss"
+    "qoss": "./bin/qcos"
   },
   "dependencies": {
-    "ali-oss": "^6.1.0",
     "qiao.plugin.cli": "0.0.6"
   },
   "author": {
