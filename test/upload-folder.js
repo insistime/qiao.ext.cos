@@ -18,7 +18,7 @@ var test = async function(){
 	console.log();
 	
 	console.time('total use');
-	var rs = await qiaoExtCos.uploadFolderSync(client, destPath, sourceFolder);
+	var rs = await qiaoExtCos.uploadFolder(client, destPath, sourceFolder);
 
 	console.log('	upload ' + rs.suc.length + ' files successfully!');
 	console.log('	upload ' + rs.fail.length + ' files failed!');
