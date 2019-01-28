@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "cos-nodejs-sdk-v5": "^2.5.6",
-    "qiao.plugin.cli": "0.0.6",
+    "qiao.plugin.cli": "0.0.7",
     "qiao.util.file": "^0.1.0"
   },
   "author": {
