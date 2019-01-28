@@ -100,3 +100,4 @@ qcos | qcos -h for help
 4. qcos ok
 5. modify md
 6. modify qiao.ext.cos
+7. bin qcos
