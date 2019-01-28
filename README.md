@@ -79,13 +79,13 @@ test();
 ```shell
 npm install -g qiao.ext.cos
 
-qcos file 	z:/workspaces/qiao.ext.cos/test/config.json d:/test.js		test.js	
-qcos folder	z:/workspaces/qiao.ext.cos/test/config.json d:/test/cocos	test9 	-i
+qcos file 	z:/workspaces/qiao.ext.cos/test/config.json 	d:/test.js	test.js	
+qcos folder	z:/workspaces/qiao.ext.cos/test/config.json 	d:/test/cocos	test9 	-i
 
 or
 
-qcos fi 	z:/workspaces/qiao.ext.cos/test/config.json d:/test.js 		test.js	
-qcos fo	z:/workspaces/qiao.ext.cos/test/config.json d:/test/cocos 		test9 	-i
+qcos fi 	z:/workspaces/qiao.ext.cos/test/config.json 	d:/test.js 	test.js	
+qcos fo		z:/workspaces/qiao.ext.cos/test/config.json 	d:/test/cocos 	test9 	-i
 
 or
 
@@ -98,3 +98,4 @@ qcos | qcos -h for help
 2. upload file
 3. upload folder 
 4. qcos ok
+5. modify md
