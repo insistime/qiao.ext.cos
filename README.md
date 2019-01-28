@@ -62,26 +62,36 @@ test();
 ```
 
 ## uploadFolderSync
-```javascript
 'use strict';
 
-var qiaoExtCos	= require('qiao.ext.cos');
-var client	= qiaoExtCos.client(require('../bin/config.json'));
+var qiaoExtCos 	= require('qiao.ext.cos');
+var client		= qiaoExtCos.client(require('../bin/config.json'));
 
 /**
  * upload folder
  * upload d:/test folder's files to your bucket's test folder
  */
 var test = async function(){
-	try{
-		var rs1 = await qiaoExtCos.uploadFolderSync(client, 'test', 'd:/test');
-		console.log(rs1);
+	var destPath		= 'test1';
+	var sourceFolder	= 'd:/test1';
+	
+	console.log("upload folder " + sourceFolder + " to oss bucket's " + destPath);
+	console.log();
+	
+	console.log('please wait a moment...');
+	console.log();
+	
+	console.time('total use');
+	var rs = await qiaoExtCos.uploadFolder(client, destPath, sourceFolder);
 
-		var rs2 = await qiaoExtCos.uploadFolderSync(client, 'test', 'd:/test');
-		console.log(rs2);
-	}catch(e){
-		console.log(e);
-	}
+	console.log('	upload ' + rs.suc.length + ' files successfully!');
+	console.log('	upload ' + rs.fail.length + ' files failed!');
+	console.log();
+	
+	console.timeEnd('total use');
+	console.log();
+	
+	console.log(rs);
 };
 
 test();
