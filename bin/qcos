@@ -5,26 +5,26 @@
 // qiao
 var qiao = {};
 qiao.cli = require('qiao.plugin.cli');
-qiao.oss = require('../lib/qiao.ext.cos.js');
+qiao.cos = require('../lib/qiao.ext.cos.js');
 
 // cmd for common
 qiao.cli.cmd
 	.version(require('../package.json').version, '-v, --version')
-	.description('qiao.ext.cos, ali oss upload tool on nodejs')
+	.description('qiao.ext.cos, tencent cos upload tool on nodejs')
 	.usage('<command> [options]');
 
 // cmd for file
 qiao.cli.cmd
-	.command('file <filePath> <bucketPath>')
+	.command('file <configPath> <filePath> <bucketPath>')
 	.alias('fi')
-	.description('upload file to ali oss bucket')
+	.description('upload file to tencent cos bucket')
 	.action(uploadFile);
 
 // cmd for folder
 qiao.cli.cmd
-	.command('folder <folderPath> <bucketPath>')
+	.command('folder <configPath> <folderPath> <bucketPath>')
 	.alias('fo')
-	.description('upload folder to ali oss bucket')
+	.description('upload folder to tencent cos bucket')
 	.option('-i, --info', 'show upload info')
 	.action(uploadFolder);
 
@@ -39,35 +39,17 @@ if(!process.argv.slice(2).length){
 }
 
 // upload file
-async function uploadFile(filePath, bucketPath){
-	// client
-	var client;
+async function uploadFile(configPath, filePath, bucketPath){
 	try{
-		client = qiao.oss.client(require(process.cwd() + '/config.json'));
-	}catch(e){
-		console.log('you need put config.json into this path');
-		
-		return;
-	}
+		var client 	= qiao.cos.client(require(configPath));
+		var rs 		= await qiao.cos.uploadFile(client, bucketPath, filePath);
 
-	// upload
-	try{
-		console.log("upload file " + filePath + " to oss bucket's " + bucketPath);
+		console.log('upload file to tencent cos success!');
 		console.log();
-		
-		console.log('please wait a moment...');
-		console.log();
-		
-		console.time('total use');
-		var rs = await qiao.oss.uploadFileSync(client, bucketPath, filePath);
-		
-		console.log('upload success, url is:');
-		console.log('	' + rs.url);
-		console.log();
-		
-		console.timeEnd('total use');
+
+		console.log(rs);
 	}catch(e){
-		console.log('upload file to alioss fail!');
+		console.log('upload file to tencent cos fail!');
 		console.log();
 		
 		console.log(e);
@@ -75,38 +57,17 @@ async function uploadFile(filePath, bucketPath){
 }
 
 // upload folder
-async function uploadFolder(folderPath, bucketPath, options){
-	// client
-	var client;
+async function uploadFolder(configPath, folderPath, bucketPath, options){
 	try{
-		client = qiao.oss.client(require(process.cwd() + '/config.json'));
-	}catch(e){
-		console.log('you need put config.json into this path');
-		
-		return;
-	}
-	
-	// upload
-	try{
-		console.log("upload folder " + folderPath + " to oss bucket's " + bucketPath);
-		console.log();
-		
-		console.log('please wait a moment...');
-		console.log();
-		
-		console.time('total use');
-		var rs = await qiao.oss.uploadFolderSync(client, bucketPath, folderPath);
-		
-		console.log('	upload ' + rs.suc.length + ' files successfully!');
-		console.log('	upload ' + rs.fail.length + ' files failed!');
+		var client 	= qiao.cos.client(require(configPath));
+		var rs 		= await qiao.cos.uploadFolder(client, bucketPath, folderPath);
+
+		console.log('upload folder to tencent cos success!');
 		console.log();
 
-		console.timeEnd('total use');
-		console.log();
-		
 		if(options.info) console.log(rs);
 	}catch(e){
-		console.log('upload folder to alioss fail!');
+		console.log('upload folder to tencent cos fail!');
 		console.log();
 		
 		console.log(e);
