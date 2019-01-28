@@ -8,11 +8,15 @@ var client		= qiaoExtCos.client(require('../bin/config.json'));
  * upload d:/test folder's files to your bucket's test folder
  */
 var test = async function(){
-	var destPath		= 'test2';
-	var sourceFolder	= 'd:/test/cocos';
-	
-	var rs = await qiaoExtCos.uploadFolder(client, destPath, sourceFolder);
-	console.log(rs);
+	try{
+		var destPath		= 'test2';
+		var sourceFolder	= 'd:/test/cocos';
+		
+		var rs = await qiaoExtCos.uploadFolder(client, destPath, sourceFolder);
+		console.log(rs);
+	}catch(e){
+		console.log(e);
+	}
 };
 
 test();
