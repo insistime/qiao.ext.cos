@@ -27,8 +27,8 @@ npm install qiao.ext.cos
 ```javascript
 'use strict';
 
-var qiaoExtOss	= require('qiao.ext.cos');
-var client	= qiaoExtOss.client(require('../bin/config.json'));
+var qiaoExtCos	= require('qiao.ext.cos');
+var client	= qiaoExtCos.client(require('../bin/config.json'));
 
 /**
  * upload file demo
@@ -36,10 +36,10 @@ var client	= qiaoExtOss.client(require('../bin/config.json'));
  */
 var test = async function(){
 	try{
-		var rs1 = await qiaoExtOss.uploadFileSync(client, 'test/test.js', 'd:/test.js');
+		var rs1 = await qiaoExtCos.uploadFileSync(client, 'test/test.js', 'd:/test.js');
 		console.log(rs1);
 
-		var rs2 = await qiaoExtOss.uploadFileSync(client, 'test/test.js', 'd:/test.js');
+		var rs2 = await qiaoExtCos.uploadFileSync(client, 'test/test.js', 'd:/test.js');
 		console.log(rs2);
 	}catch(e){
 		console.log(e);
@@ -53,8 +53,8 @@ test();
 ```javascript
 'use strict';
 
-var qiaoExtOss	= require('qiao.ext.cos');
-var client	= qiaoExtOss.client(require('../bin/config.json'));
+var qiaoExtCos	= require('qiao.ext.cos');
+var client	= qiaoExtCos.client(require('../bin/config.json'));
 
 /**
  * upload folder
@@ -62,10 +62,10 @@ var client	= qiaoExtOss.client(require('../bin/config.json'));
  */
 var test = async function(){
 	try{
-		var rs1 = await qiaoExtOss.uploadFolderSync(client, 'test', 'd:/test');
+		var rs1 = await qiaoExtCos.uploadFolderSync(client, 'test', 'd:/test');
 		console.log(rs1);
 
-		var rs2 = await qiaoExtOss.uploadFolderSync(client, 'test', 'd:/test');
+		var rs2 = await qiaoExtCos.uploadFolderSync(client, 'test', 'd:/test');
 		console.log(rs2);
 	}catch(e){
 		console.log(e);
@@ -79,14 +79,14 @@ test();
 ```javascript
 'use strict';
 
-var qiaoExtOss	= require('qiao.ext.cos');
-var client	= qiaoExtOss.client(require('../bin/config.json'));
+var qiaoExtCos	= require('qiao.ext.cos');
+var client	= qiaoExtCos.client(require('../bin/config.json'));
 
 /**
  * upload file demo
  * upload d:/test.js to your bucket's test/test.js
  */
-qiaoExtOss.uploadFile(client, 'test/test.js', 'd:/test.js', function(err, rs){
+qiaoExtCos.uploadFile(client, 'test/test.js', 'd:/test.js', function(err, rs){
 	if(err) throw err;
 	
 	console.log(rs);
@@ -97,14 +97,14 @@ qiaoExtOss.uploadFile(client, 'test/test.js', 'd:/test.js', function(err, rs){
 ```javascript
 'use strict';
 
-var qiaoExtOss	= require('qiao.ext.cos');
-var client	= qiaoExtOss.client(require('../bin/config.json'));
+var qiaoExtCos	= require('qiao.ext.cos');
+var client	= qiaoExtCos.client(require('../bin/config.json'));
 
 /**
  * upload folder
  * upload d:/test folder's files to your bucket's test folder
  */
-qiaoExtOss.uploadFolder(client, 'test', 'd:/test', function(err, rs){
+qiaoExtCos.uploadFolder(client, 'test', 'd:/test', function(err, rs){
 	if(err) throw err;
 	
 	console.log(rs);
