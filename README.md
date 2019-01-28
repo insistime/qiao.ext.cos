@@ -39,20 +39,8 @@ var test = async function(){
 		var destPath	= 'test/test.js';
 		var sourceFile 	= 'd:/test.js';
 		
-		console.log("upload file " + sourceFile + " to oss bucket's " + destPath);
-		console.log();
-		
-		console.log('please wait a moment...');
-		console.log();
-		
-		console.time('total use');
-		var data = await qiaoExtCos.uploadFile(client, destPath, sourceFile);
-		
-		console.log('upload success, url is:');
-		console.log('	' + data.Location);
-		console.log();
-		
-		console.timeEnd('total use');
+		var rs = await qiaoExtCos.uploadFile(client, destPath, sourceFile);
+		console.log(rs);
 	}catch(e){
 		console.log(e);
 	}
@@ -72,25 +60,10 @@ var client		= qiaoExtCos.client(require('../bin/config.json'));
  * upload d:/test folder's files to your bucket's test folder
  */
 var test = async function(){
-	var destPath		= 'test1';
-	var sourceFolder	= 'd:/test1';
+	var destPath		= 'test2';
+	var sourceFolder	= 'd:/test/cocos';
 	
-	console.log("upload folder " + sourceFolder + " to oss bucket's " + destPath);
-	console.log();
-	
-	console.log('please wait a moment...');
-	console.log();
-	
-	console.time('total use');
 	var rs = await qiaoExtCos.uploadFolder(client, destPath, sourceFolder);
-
-	console.log('	upload ' + rs.suc.length + ' files successfully!');
-	console.log('	upload ' + rs.fail.length + ' files failed!');
-	console.log();
-	
-	console.timeEnd('total use');
-	console.log();
-	
 	console.log(rs);
 };
 
