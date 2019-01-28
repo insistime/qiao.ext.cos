@@ -99,3 +99,4 @@ qcos | qcos -h for help
 3. upload folder 
 4. qcos ok
 5. modify md
+6. modify qiao.ext.cos
