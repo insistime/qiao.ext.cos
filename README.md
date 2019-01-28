@@ -121,4 +121,4 @@ qcos | qcos -h for help
 ## 0.0.1.20190128
 1. 初始化项目
 2. upload file
-3. upload folder
+3. upload folder 
