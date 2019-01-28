@@ -19,7 +19,7 @@ var test = async function(){
 		console.log();
 		
 		console.time('total use');
-		var data = await qiaoExtCos.uploadFileSync(client, destPath, sourceFile);
+		var data = await qiaoExtCos.uploadFile(client, destPath, sourceFile);
 		
 		console.log('upload success, url is:');
 		console.log('	' + data.Location);

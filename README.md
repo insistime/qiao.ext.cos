@@ -15,20 +15,20 @@ npm install qiao.ext.cos
 ## config.json
 ```json
 {
-	"region"		: "your region",
-	"accessKeyId"		: "your access key id",
-	"accessKeySecret"	: "your access secret",
-	"bucket"		: "your bucket"
+	"SecretId"	: "your secret id",
+	"SecretKey"	: "your secret kye",
+	"Region"	: "your region",
+	"Bucket"	: "your bucket"
 }
 ```
 
 # api
-## uploadFileSync
+## uploadFile
 ```javascript
 'use strict';
 
-var qiaoExtCos	= require('qiao.ext.cos');
-var client	= qiaoExtCos.client(require('../bin/config.json'));
+var qiaoExtCos 	= require('qiao.ext.cos');
+var client		= qiaoExtCos.client(require('../bin/config.json'));
 
 /**
  * upload file demo
@@ -36,11 +36,23 @@ var client	= qiaoExtCos.client(require('../bin/config.json'));
  */
 var test = async function(){
 	try{
-		var rs1 = await qiaoExtCos.uploadFileSync(client, 'test/test.js', 'd:/test.js');
-		console.log(rs1);
-
-		var rs2 = await qiaoExtCos.uploadFileSync(client, 'test/test.js', 'd:/test.js');
-		console.log(rs2);
+		var destPath	= 'test/test.js';
+		var sourceFile 	= 'd:/test.js';
+		
+		console.log("upload file " + sourceFile + " to oss bucket's " + destPath);
+		console.log();
+		
+		console.log('please wait a moment...');
+		console.log();
+		
+		console.time('total use');
+		var data = await qiaoExtCos.uploadFile(client, destPath, sourceFile);
+		
+		console.log('upload success, url is:');
+		console.log('	' + data.Location);
+		console.log();
+		
+		console.timeEnd('total use');
 	}catch(e){
 		console.log(e);
 	}
@@ -75,42 +87,6 @@ var test = async function(){
 test();
 ```
 
-## uploadFile
-```javascript
-'use strict';
-
-var qiaoExtCos	= require('qiao.ext.cos');
-var client	= qiaoExtCos.client(require('../bin/config.json'));
-
-/**
- * upload file demo
- * upload d:/test.js to your bucket's test/test.js
- */
-qiaoExtCos.uploadFile(client, 'test/test.js', 'd:/test.js', function(err, rs){
-	if(err) throw err;
-	
-	console.log(rs);
-});
-```
-
-## uploadFolder
-```javascript
-'use strict';
-
-var qiaoExtCos	= require('qiao.ext.cos');
-var client	= qiaoExtCos.client(require('../bin/config.json'));
-
-/**
- * upload folder
- * upload d:/test folder's files to your bucket's test folder
- */
-qiaoExtCos.uploadFolder(client, 'test', 'd:/test', function(err, rs){
-	if(err) throw err;
-	
-	console.log(rs);
-});
-```
-
 # also in cli
 ```shell
 npm install -g qiao.ext.cos
@@ -118,95 +94,21 @@ npm install -g qiao.ext.cos
 and put config.json file into your-path
 cd your-path
 
-qoss file 	test/test.js	d:/test.js	
-qoss folder	test		d:/test		-i
+qcos file 	test/test.js	d:/test.js	
+qcos folder	test		d:/test		-i
 
 or
 
-qoss fi 	test/test.js	d:/test.js	
-qoss fo		test		d:/test		-i
+qcos fi 	test/test.js	d:/test.js	
+qcos fo		test		d:/test		-i
 
 or
 
-qoss | qoss -h for help
+qcos | qcos -h for help
 ```
 
 # version
-## 0.1.8.20190109
-1. update qiao.plugin.cli@0.0.6
-2. 调整qoss中client的判断时机
-3. output help
-
-## 0.1.7.20190107
-1. update ali-oss@6.1.0
-2. ali oss upload tool on nodejs
-
-## 0.1.6.20181205
-1. qoss with qiao.plugin.cli
-2. update ali-oss@6.0.1
-3. qiao-ext-oss --> qoss 
-4. modify md
-
-## 0.1.5.20181127
-1. modify method name
-2. del .js
-3. index.js
-
-## 0.1.4.20181122
-1. npm audit
-
-## 0.1.3.20181012
-1. npm audit
-
-## 0.1.2.20180720
-1. https homepage
-
-## 0.1.1.20180719
-1. modify readme.md
-2. readme.md add homepage
-3. readme.md add urls
-
-## 0.1.0.20180210
-1. highlight md
-
-## 0.0.9.20180208
-1. update git url
-
-## 0.0.8.20180117
-1. add log
-2. add time
-
-## 0.0.7.20180113
-1. 代码优化
-2. 0.2.0
-3. 0.2.1
-
-## 0.0.6.20180112
-1. add qiao-ext-oss
-2. modify markdown
-3. file --> folder
-
-## 0.0.5.20171229
-1. 修改readme.md的示例代码
-
-## 0.0.4.20171228
-1. test js use strict
-2. update package.json
-
-## 0.0.3.20171217
-1. upload file async
-2. upload file sync
-3. upload folder async
-4. upload folder sync
-
-## 0.0.2.20171213
-1. 删除无关文件
-2. 添加npmignore
-3. 更新readme文件
-4. exports
-5. upload file
-6. upload folder
-
-## 0.0.1.20171212
+## 0.0.1.20190128
 1. 初始化项目
-2. 添加gitignore文件
+2. upload file
+3. upload folder
