@@ -28,7 +28,7 @@ npm install qiao.ext.cos
 'use strict';
 
 var qiaoExtCos 	= require('qiao.ext.cos');
-var client		= qiaoExtCos.client(require('../bin/config.json'));
+var client	= qiaoExtCos.client(require('./config.json'));
 
 /**
  * upload file demo
@@ -49,11 +49,12 @@ var test = async function(){
 test();
 ```
 
-## uploadFolderSync
+## uploadFolder
+```javascript
 'use strict';
 
 var qiaoExtCos 	= require('qiao.ext.cos');
-var client		= qiaoExtCos.client(require('../bin/config.json'));
+var client	= qiaoExtCos.client(require('./config.json'));
 
 /**
  * upload folder
@@ -78,16 +79,13 @@ test();
 ```shell
 npm install -g qiao.ext.cos
 
-and put config.json file into your-path
-cd your-path
-
-qcos file 	test/test.js	d:/test.js	
-qcos folder	test		d:/test		-i
+qcos file 	z:/workspaces/qiao.ext.cos/test/config.json d:/test.js		test.js	
+qcos folder	z:/workspaces/qiao.ext.cos/test/config.json d:/test/cocos	test9 	-i
 
 or
 
-qcos fi 	test/test.js	d:/test.js	
-qcos fo		test		d:/test		-i
+qcos fi 	z:/workspaces/qiao.ext.cos/test/config.json d:/test.js 		test.js	
+qcos fo	z:/workspaces/qiao.ext.cos/test/config.json d:/test/cocos 		test9 	-i
 
 or
 
@@ -99,3 +97,4 @@ qcos | qcos -h for help
 1. 初始化项目
 2. upload file
 3. upload folder 
+4. qcos ok
