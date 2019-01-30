@@ -49,23 +49,23 @@ var test = async function(){
 test();
 ```
 
-## uploadFolder
+## uploadFolderSync
 ```javascript
 'use strict';
 
 var qiaoExtCos 	= require('qiao.ext.cos');
-var client	= qiaoExtCos.client(require('./config.json'));
+var client		= qiaoExtCos.client(require('./config.json'));
 
 /**
  * upload folder
- * upload d:/test folder's files to your bucket's test folder
+ * upload d:/static folder's files to your bucket's test folder
  */
 var test = async function(){
 	try{
-		var destPath		= 'test2';
-		var sourceFolder	= 'd:/test/cocos';
+		var destPath		= 'static';
+		var sourceFolder	= 'd:/static';
 		
-		var rs = await qiaoExtCos.uploadFolder(client, destPath, sourceFolder);
+		var rs = await qiaoExtCos.uploadFolderSync(client, destPath, sourceFolder);
 		console.log(rs);
 	}catch(e){
 		console.log(e);

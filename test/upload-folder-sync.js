@@ -12,8 +12,8 @@ var test = async function(){
 		var destPath		= 'static';
 		var sourceFolder	= 'd:/static';
 		
-		var rs = await qiaoExtCos.uploadFolder(client, destPath, sourceFolder);
-//		console.log(rs);
+		var rs = await qiaoExtCos.uploadFolderSync(client, destPath, sourceFolder);
+		console.log(rs);
 	}catch(e){
 		console.log(e);
 	}
