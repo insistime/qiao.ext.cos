@@ -139,6 +139,14 @@ qcos | qcos -h for help
 ```
 
 # version
+## 0.0.2.20190130
+1. upload file async
+2. upload file sync
+3. upload folder async
+4. upload folder sync
+5. modify qcos
+6. 优化代码，并行上传
+
 ## 0.0.1.20190128
 1. 初始化项目
 2. upload file
