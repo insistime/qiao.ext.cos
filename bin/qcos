@@ -42,7 +42,7 @@ if(!process.argv.slice(2).length){
 async function uploadFile(configPath, filePath, bucketPath){
 	try{
 		var client 	= qiao.cos.client(require(configPath));
-		var rs 		= await qiao.cos.uploadFile(client, bucketPath, filePath);
+		var rs 		= await qiao.cos.uploadFileSync(client, bucketPath, filePath);
 
 		console.log('upload file to tencent cos success!');
 		console.log();
@@ -60,7 +60,7 @@ async function uploadFile(configPath, filePath, bucketPath){
 async function uploadFolder(configPath, folderPath, bucketPath, options){
 	try{
 		var client 	= qiao.cos.client(require(configPath));
-		var rs 		= await qiao.cos.uploadFolder(client, bucketPath, folderPath);
+		var rs 		= await qiao.cos.uploadFolderSync(client, bucketPath, folderPath);
 
 		console.log('upload folder to tencent cos success!');
 		console.log();
