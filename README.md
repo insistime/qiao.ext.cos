@@ -58,7 +58,7 @@ var client		= qiaoExtCos.client(require('./config.json'));
 
 /**
  * upload folder
- * upload d:/static folder's files to your bucket's test folder
+ * upload d:/test folder's files to your bucket's test folder
  */
 var test = async function(){
 	try{
@@ -93,6 +93,29 @@ var test = function(){
 		qiaoExtCos.uploadFile(client, destPath, sourceFile, function(err, data){
 			console.log(err, data);
 		});
+};
+
+test();
+```
+
+## uploadFolder
+```javascript
+'use strict';
+
+var qiaoExtCos 	= require('qiao.ext.cos');
+var client		= qiaoExtCos.client(require('./config.json'));
+
+/**
+ * upload folder
+ * upload d:/test folder's files to your bucket's test folder
+ */
+var test = function(){
+	var destPath		= 'static';
+	var sourceFolder	= 'd:/static';
+	
+	qiaoExtCos.uploadFolder(client, destPath, sourceFolder, function(rs){
+		console.log(rs);
+	});
 };
 
 test();
