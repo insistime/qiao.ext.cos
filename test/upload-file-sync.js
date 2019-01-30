@@ -12,7 +12,7 @@ var test = async function(){
 		var destPath	= 'test/test.js';
 		var sourceFile 	= 'd:/test.js';
 		
-		var rs = await qiaoExtCos.uploadFile(client, destPath, sourceFile);
+		var rs = await qiaoExtCos.uploadFileSync(client, destPath, sourceFile);
 		console.log(rs);
 	}catch(e){
 		console.log(e);

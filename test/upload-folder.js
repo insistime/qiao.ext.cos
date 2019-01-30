@@ -9,11 +9,11 @@ var client		= qiaoExtCos.client(require('./config.json'));
  */
 var test = async function(){
 	try{
-		var destPath		= 'test2';
-		var sourceFolder	= 'd:/test/cocos';
+		var destPath		= 'static';
+		var sourceFolder	= 'd:/static';
 		
 		var rs = await qiaoExtCos.uploadFolder(client, destPath, sourceFolder);
-		console.log(rs);
+//		console.log(rs);
 	}catch(e){
 		console.log(e);
 	}
