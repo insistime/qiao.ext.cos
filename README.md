@@ -139,6 +139,9 @@ qcos | qcos -h for help
 ```
 
 # version
+## 0.0.3.20190529
+1. check region and bucket
+
 ## 0.0.2.20190130
 1. upload file async
 2. upload file sync
