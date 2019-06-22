@@ -139,6 +139,9 @@ qcos | qcos -h for help
 ```
 
 # version
+## 0.0.4.20190622
+1. qcos fix ./
+
 ## 0.0.3.20190529
 1. check region and bucket
 
