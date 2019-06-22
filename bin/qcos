@@ -2,6 +2,9 @@
 
 'use strict';
 
+// path
+var path = require('path');
+
 // qiao
 var qiao = {};
 qiao.cli = require('qiao.plugin.cli');
@@ -41,7 +44,11 @@ if(!process.argv.slice(2).length){
 // upload file
 async function uploadFile(configPath, filePath, bucketPath){
 	try{
-		var client 	= qiao.cos.client(require(configPath));
+        var cwd = process.cwd();
+        if(configPath.startsWith('./')) configPath = path.resolve(cwd, configPath);
+        if(folderPath.startsWith('./')) folderPath = path.resolve(cwd, folderPath);
+		
+        var client 	= qiao.cos.client(require(configPath));
 		var rs 		= await qiao.cos.uploadFileSync(client, bucketPath, filePath);
 
 		console.log('upload file to tencent cos success!');
@@ -59,6 +66,10 @@ async function uploadFile(configPath, filePath, bucketPath){
 // upload folder
 async function uploadFolder(configPath, folderPath, bucketPath, options){
 	try{
+        var cwd = process.cwd();
+        if(configPath.startsWith('./')) configPath = path.resolve(cwd, configPath);
+        if(folderPath.startsWith('./')) folderPath = path.resolve(cwd, folderPath);
+
 		var client 	= qiao.cos.client(require(configPath));
 		var rs 		= await qiao.cos.uploadFolderSync(client, bucketPath, folderPath);
 
