@@ -141,6 +141,7 @@ qcos | qcos -h for help
 # version
 ## 0.0.5.20190808
 1. cos-nodejs-sdk-v5@2.5.9
+2. qiao.plugin.cli@0.0.8
 
 ## 0.0.4.20190622
 1. qcos fix ./
