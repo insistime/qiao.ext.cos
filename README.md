@@ -142,6 +142,10 @@ qcos | qcos -h for help
 ```
 
 # version
+## 0.0.6.20191206
+1. add funding
+2. update packages
+
 ## 0.0.5.20190808
 1. cos-nodejs-sdk-v5@2.5.9
 2. qiao.plugin.cli@0.0.8
