@@ -46,7 +46,7 @@ async function uploadFile(configPath, filePath, bucketPath){
 	try{
         var cwd = process.cwd();
         if(configPath.startsWith('./')) configPath = path.resolve(cwd, configPath);
-        if(folderPath.startsWith('./')) folderPath = path.resolve(cwd, folderPath);
+        if(filePath.startsWith('./')) filePath = path.resolve(cwd, filePath);
 		
         var client 	= qiao.cos.client(require(configPath));
 		var rs 		= await qiao.cos.uploadFileSync(client, bucketPath, filePath);
