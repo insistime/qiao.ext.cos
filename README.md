@@ -142,6 +142,9 @@ qcos | qcos -h for help
 ```
 
 # version
+## 0.0.7.20191219
+1. fix folderPath bug
+
 ## 0.0.6.20191206
 1. add funding
 2. update packages
