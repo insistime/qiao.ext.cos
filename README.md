@@ -142,6 +142,9 @@ qcos | qcos -h for help
 ```
 
 # version
+## 0.0.8.20200403
+1. ncu
+
 ## 0.0.7.20191219
 1. fix folderPath bug
 
