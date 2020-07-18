@@ -31,7 +31,7 @@ npm install qiao.ext.cos
 'use strict';
 
 var qiaoExtCos 	= require('qiao.ext.cos');
-var client		= qiaoExtCos.client(require('./config.json'));
+var client	= qiaoExtCos.client(require('./config.json'));
 
 /**
  * upload file demo
@@ -57,7 +57,7 @@ test();
 'use strict';
 
 var qiaoExtCos 	= require('qiao.ext.cos');
-var client		= qiaoExtCos.client(require('./config.json'));
+var client	= qiaoExtCos.client(require('./config.json'));
 
 /**
  * upload folder
@@ -83,7 +83,7 @@ test();
 'use strict';
 
 var qiaoExtCos 	= require('qiao.ext.cos');
-var client		= qiaoExtCos.client(require('./config.json'));
+var client	= qiaoExtCos.client(require('./config.json'));
 
 /**
  * upload file demo
@@ -106,7 +106,7 @@ test();
 'use strict';
 
 var qiaoExtCos 	= require('qiao.ext.cos');
-var client		= qiaoExtCos.client(require('./config.json'));
+var client	= qiaoExtCos.client(require('./config.json'));
 
 /**
  * upload folder
@@ -142,6 +142,9 @@ qcos | qcos -h for help
 ```
 
 # version
+## 0.0.9.20200718
+1. ncu
+
 ## 0.0.8.20200403
 1. ncu
 
